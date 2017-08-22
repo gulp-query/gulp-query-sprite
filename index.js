@@ -1,4 +1,4 @@
-let Plugin = require('../../src/Plugin')
+let Plugin = require('gulp-query').Plugin
   , spritesmith = require('gulp.spritesmith')
   , glob = require('glob')
   , imagemin = require('gulp-imagemin')
@@ -90,7 +90,7 @@ class SpritePlugin extends Plugin {
     let padding = 'padding' in config ? config.padding : 1;
     let algorithm = 'algorithm' in config ? config.algorithm : 'binary-tree';
 
-    let cssFormat = false;
+    let cssFormat = 'css';
     let cssExtension = 'css';
       // json_texture json json_array css scss sass less
     if (('format' in config)) {
