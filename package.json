@@ -1,6 +1,6 @@
 {
   "name": "gulp-query-sprite",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "This plugin provides automatic create sprite and support file (css,scss,json and etc)",
   "main": "index.js",
   "author": "Marat Nuriev",

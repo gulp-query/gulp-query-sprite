@@ -1,4 +1,4 @@
-## gulp-query-compress
+## gulp-query-sprite
 Plugin for [gulp-query](https://github.com/gulp-query/gulp-query)
 
 Do the sprites and get the final image with scss, css, json or other
