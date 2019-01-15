@@ -7,6 +7,7 @@ let Plugin = require('gulp-query').Plugin
   , imageminMozjpeg = require('imagemin-mozjpeg')
   , buffer = require('vinyl-buffer')
   , node_path = require('path')
+  , texturePackerTemplate = require('./json-texture-template')
 ;
 
 class SpritePlugin extends Plugin {
@@ -135,6 +136,10 @@ class SpritePlugin extends Plugin {
 
       if (cssFormat) {
         _cfg['cssFormat'] = cssFormat;
+
+        if (cssFormat === 'json_texture') {
+          _cfg['cssTemplate'] = texturePackerTemplate;
+        }
       }
 
       spriteData = gulp.src(_src)
