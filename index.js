@@ -6,6 +6,7 @@ let Plugin = require('gulp-query').Plugin
   , imageminPngquant = require('imagemin-pngquant')
   , imageminMozjpeg = require('imagemin-mozjpeg')
   , buffer = require('vinyl-buffer')
+  , gulpif = require('gulp-if')
   , node_path = require('path')
   , texturePackerTemplate = require('./json-texture-template')
 ;
@@ -147,12 +148,12 @@ class SpritePlugin extends Plugin {
 
       stream.push(spriteData.img
         .pipe(buffer())
-        .pipe(imagemin(
+        .pipe(gulpif(this.isProduction(), imagemin(
           [
             imageminMozjpeg(imageminCfg.jpeg),
             imageminPngquant(imageminCfg.png)
           ]
-        ))
+        )))
         .pipe(gulp.dest(path_to_images))
         .pipe(this.notify(this.reportOfSprite.bind(this, task_name, 'img', _src, _destImage)))
       )

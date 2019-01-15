@@ -41,10 +41,13 @@ build((query) => {
       })
 
       // object
-      .compress({
+      .sprite({
         name: 'any',
         from: [
-          "images_source/watch/*.jpg",
+          {
+            from: "images_source/watch/*.jpg",
+            to: "watch@2x"
+          },
           "images_source/auth/*.png"
         ],
         to: {
